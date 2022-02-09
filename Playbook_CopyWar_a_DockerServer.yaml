@@ -4,5 +4,5 @@
   tasks:
     - name: Copia WAR remotamente al Servidor Docker
       copy:
-        src: /home/ansibleadmin/carpeta_de_wars/devops-vinceup-hell-yeah.war
+        src: /home/ansibleadmin/carpeta_de_wars/rihanna.war
         dest: /home/dockeradmin/contenedores-rihanna/
