@@ -1,0 +1,41 @@
+apiVersion: apps/v1 # para versiones antes de 1.9.0 usar apps/v1beta2
+kind: Deployment
+metadata:
+  name: rihanna-deployment
+spec:
+  selector:
+    matchLabels:
+      app: rihanna-app
+  replicas: 1 # correra 1 pod usando como modelo el template abajo
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+
+  template:
+    metadata:
+      labels:
+        app: rihanna-app
+    spec:
+      containers:
+      - name: rihanna-app
+        image: vincenup/rihanna-proyecto:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rihanna-app
+  labels:
+    app: rihanna-app
+spec:
+  selector:
+    app: rihanna-app
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 32001
