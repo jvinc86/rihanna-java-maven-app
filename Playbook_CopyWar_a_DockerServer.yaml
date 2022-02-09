@@ -5,4 +5,4 @@
     - name: Copia WAR remotamente al Servidor Docker
       copy:
         src: /home/ansibleadmin/carpeta_de_wars/devops-vinceup-hell-yeah.war
-        dest: /home/dockeradmin/proyecto-rihanna/
+        dest: /home/dockeradmin/contenedores-rihanna/
