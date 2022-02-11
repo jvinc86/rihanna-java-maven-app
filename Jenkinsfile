@@ -10,7 +10,9 @@ pipeline {
 
     stages {
         stage('Check out Repo Git') {
-            steps{ git 'https://github.com/jvinc86/rihanna-java-maven-app.git' }
+            steps{
+                git([url: 'https://github.com/jvinc86/rihanna-java-maven-app.git', branch: 'master'])
+            }
         }        
         stage('Buildear Codigo con Maven') {
             steps { sh 'mvn clean package' }
