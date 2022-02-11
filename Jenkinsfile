@@ -41,5 +41,11 @@ pipeline {
                 sh 'docker rmi $nombre_imagen:$BUILD_NUMBER'
             }
         }
+        stage('Correr contenedor'){
+            steps{
+                sh 'docker run -d --name mi_app -p 8090:8080 $nombre_imagen:latest'
+                sh 'docker image rm -f $nombre_imagen:latest'
+            }
+        }
     }
 }
