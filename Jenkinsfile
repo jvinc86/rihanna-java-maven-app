@@ -43,7 +43,7 @@ pipeline {
         }
         stage('Correr contenedor'){
             steps{
-                sh 'docker run -d -p 8090:8080 $nombre_imagen:latest'
+                sh 'docker run -d -p 8095:8080 $nombre_imagen:latest'
                 sh 'docker rmi -f $nombre_imagen:latest'
             }
         }
