@@ -43,7 +43,7 @@ pipeline {
         }
         stage('Correr contenedor'){
             steps{
-                sh 'docker rm \$(docker stop \$(docker ps -aq))'
+                sh 'docker rm $(docker stop $(docker ps -aq))'
                 sh 'docker run -d -p 8095:8080 $nombre_imagen:latest'
                 sh 'docker rmi -f $nombre_imagen:latest'
             }
