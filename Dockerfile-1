@@ -1,2 +1,0 @@
-FROM tomcat:9-jre9
-RUN ["pwd"]
